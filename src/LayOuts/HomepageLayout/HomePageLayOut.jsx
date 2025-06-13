@@ -1,14 +1,16 @@
 import React from 'react';
 import NavBar from '../../ShearComponents/NavBar';
 import { Outlet } from 'react-router';
+import Footer from '../../ShearComponents/Footer';
 
 const HomePageLayOut = () => {
     return (
-        <div>
+        <div >
             <NavBar/>
-            <div>
+            <div className='min-h-screen container mx-auto'>
                 <Outlet></Outlet>
             </div>
+            <Footer/>
             
         </div>
     );
