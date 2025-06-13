@@ -1,7 +1,10 @@
-import React from "react";
+import React, { use } from "react";
 import { Link, NavLink } from "react-router";
 import logo from '../assets/KnowNetlogo.png'
+import AuthContext from "../FirebaseAuthentication/AuthContext";
 const NavBar = () => {
+  const {email} = use(AuthContext)
+  console.log(email);
     const Navlinks = <>
         <li>
             <NavLink>Home</NavLink>

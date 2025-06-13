@@ -1,24 +1,31 @@
 import React from "react";
 import login from '../../assets/Login.json'
 import Lottie from "lottie-react";
+import { Link } from "react-router";
 const Login = () => {
+  const hanldeLogin = e =>{
+    e.preventDefault(); 
+    const email = e.target.email.value
+    const password = e.target.password.value
+    console.log(email,password);
+  }
   return (
-    <div className="lg:flex justify-center items-center">
+    <div className="md:flex justify-center items-center">
         <div className="mx-4 lg:mx-0">
             <Lottie animationData={login} loop={true} className="lg:w-[70%] lg:h=[300px] "></Lottie>
         </div>
       <div className="lg:w-full lg:max-w-md p-8 space-y-3 rounded-xl mx-4 lg:mx-0  bg-gray-50  text-gray-800">
         <h1 className="text-2xl font-bold text-center">Login</h1>
-        <form noValidate="" action="" className="space-y-6">
+        <form onSubmit={hanldeLogin} action="" className="space-y-6">
           <div className="space-y-1 text-sm">
             <label htmlFor="username" className="block  text-gray-600">
-              Username
+              Email
             </label>
             <input
-              type="text"
-              name="username"
+              type="email"
+              name="email"
               id="username"
-              placeholder="Username"
+              placeholder="Enter your email"
               className="w-full px-4 py-3 rounded-md  bg-white text-gray-800 focus: border-violet-600"
             />
           </div>
@@ -81,13 +88,13 @@ const Login = () => {
         </div>
         <p className="text-xs text-center sm:px-6  text-gray-600">
           Don't have an account?
-          <a
+          <Link
+          to='/signup'
             rel="noopener noreferrer"
-            href="#"
             className="underline  text-gray-800"
           >
             Sign up
-          </a>
+          </Link>
         </p>
       </div>
     </div>
