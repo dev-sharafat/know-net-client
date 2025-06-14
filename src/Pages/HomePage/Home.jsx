@@ -12,7 +12,7 @@ const Home = () => {
           with a learning community.
         </p>
         <div>
-            {/* <Slider/> */}
+            <Slider/>
         </div>
       </div>
     </div>
