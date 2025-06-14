@@ -1,11 +1,20 @@
-import React from 'react';
+import React, { use } from 'react';
+import AuthContext from './AuthContext';
+import { useLocation } from 'react-router';
 
-const AuthPrivate = () => {
-    return (
-        <div>
-            
-        </div>
-    );
+const AuthPrivate = ({children}) => {
+   const { loading, user } = use(AuthContext)
+  const location = useLocation()
+
+  if (loading) {
+    return ; 
+  }
+
+  if (!user) {
+    return <Navigate state={location?.pathname} to="/login" replace />;
+  }
+
+  return children;
 };
 
 export default AuthPrivate;

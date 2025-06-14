@@ -15,7 +15,7 @@ const router = createBrowserRouter([
                 Component:Home
             },
             {
-                path:'/login',
+                path:'login',
                 Component:Login
             },
             {
@@ -23,6 +23,9 @@ const router = createBrowserRouter([
                 Component:SignIn
             }
         ] 
+    },
+    {
+
     }
 ])
 

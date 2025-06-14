@@ -1,19 +1,62 @@
-import React from "react";
-import login from '../../assets/Login.json'
+import React, { use } from "react";
+import login from "../../assets/Login.json";
 import Lottie from "lottie-react";
 import { Link } from "react-router";
+import AuthContext from "../../FirebaseAuthentication/AuthContext";
+import Swal from "sweetalert2";
 const Login = () => {
-  const hanldeLogin = e =>{
-    e.preventDefault(); 
-    const email = e.target.email.value
-    const password = e.target.password.value
-    console.log(email,password);
-  }
+  const { signIn, googleSignIn,setUser } = use(AuthContext);
+  const hanldeLogin = (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    console.log(email, password);
+    signIn(email, password)
+      .then((result) => {
+        setUser(result)
+        Swal.fire({
+          position: "buttom",
+          icon: "success",
+          title: "You are successfully login",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        setTimeout(()=>{
+          window.location.replace('/')
+        },2000)
+      })
+      .catch((error) => {
+        Swal.fire(error.message);
+      });
+  };
+  const handlegoolelogin = () => {
+    googleSignIn()
+        .then((result) => {
+          setUser(result)
+        Swal.fire({
+          position: "buttom",
+          icon: "success",
+          title: "You are successfully login",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        setTimeout(()=>{
+          window.location.replace('/')
+        },2000)
+      })
+      .catch((error) => {
+        Swal.fire(error.message);
+      });
+  };
   return (
     <div className="md:flex justify-center items-center">
-        <div className="mx-4 lg:mx-0">
-            <Lottie animationData={login} loop={true} className="lg:w-[70%] lg:h=[300px] "></Lottie>
-        </div>
+      <div className="mx-4 lg:mx-0">
+        <Lottie
+          animationData={login}
+          loop={true}
+          className="lg:w-[70%] lg:h=[300px] "
+        ></Lottie>
+      </div>
       <div className="lg:w-full lg:max-w-md p-8 space-y-3 rounded-xl mx-4 lg:mx-0  bg-gray-50  text-gray-800">
         <h1 className="text-2xl font-bold text-center">Login</h1>
         <form onSubmit={hanldeLogin} action="" className="space-y-6">
@@ -58,7 +101,11 @@ const Login = () => {
           <div className="flex-1 h-px sm:w-16  bg-gray-300"></div>
         </div>
         <div className="flex justify-center space-x-4">
-          <button aria-label="Log in with Google" className="p-3 rounded-sm">
+          <button
+            onClick={handlegoolelogin}
+            aria-label="Log in with Google"
+            className="p-3 rounded-sm"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 32 32"
@@ -89,7 +136,7 @@ const Login = () => {
         <p className="text-xs text-center sm:px-6  text-gray-600">
           Don't have an account?
           <Link
-          to='/signup'
+            to="/signup"
             rel="noopener noreferrer"
             className="underline  text-gray-800"
           >
