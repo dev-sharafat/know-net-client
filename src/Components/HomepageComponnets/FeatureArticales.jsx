@@ -5,7 +5,7 @@ const FeatureArticales = ({knewNetdataPromise}) => {
     const knewNetData = use(knewNetdataPromise)
   return (
     <div className="mt-10 mx-4 lg:mx-0 md:mx-4">
-      <div className="text-center">
+      <div className="text-center space-y-3">
         <h1 className="text-2xl md:text-3xl lg:text-5xl font-bold">Knowledge Shared</h1>
         <p>
           From innovative thoughts to personal experiences and helpful how-tos,
