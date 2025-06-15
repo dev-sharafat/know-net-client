@@ -9,11 +9,10 @@ const FeatureArticle = ({ knewNet }) => {
           <motion.div
             whileHover={{ scale: 1.03 }}
             transition={{ type: "spring", stiffness: 300 }}
-            className="bg-white rounded-2xl shadow-md p-5 border border-gray-100 hover:shadow-lg"
-          >
-            <h3 className="text-xl font-semibold text-gray-800 mb-2">{title}</h3>
-            <p className="text-sm text-gray-600 mb-4 line-clamp-3">{content}</p>
-            <div className="text-xs text-gray-500 flex justify-between">
+            className="bg-white rounded-2xl shadow-md p-5 border  border-gray-100 hover:shadow-lg dark:bg-black ">
+            <h3 className="text-xl font-semibold dark:text-white text-gray-800 mb-2">{title}</h3>
+            <p className="text-sm dark:text-gray-400 text-gray-600 mb-4 line-clamp-3">{content}</p>
+            <div className="text-xs dark:text-white text-gray-500 flex justify-between">
               <span>By {author_name}</span>
               <span>{date_posted}</span>
             </div>

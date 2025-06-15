@@ -7,7 +7,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-import "./slider.css";
+
 
 // import required modules
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
@@ -53,17 +53,17 @@ export default function Slider() {
         modules={[Autoplay, Pagination, Navigation]}
         className="mySwiper"
       >
-        {sliderDatas.map((sliderData, index) => (
-          <SwiperSlide sliderData={sliderData} key={index}>
+        {sliderDatas.map((data, index) => (
+          <SwiperSlide data={data} key={index}>
             <div
               className="space-y-3  text-white my-10 flex flex-col justify-center px-10  h-[500px] bg-cover bg-center "
-              style={{ backgroundImage: `url(${sliderData.imageUrl})` }}
+              style={{ backgroundImage: `url(${data.imageUrl})` }}
             >
               <h1 className="text-2xl lg:text-5xl md:text-3xl font-bold">
-                {sliderData.heading}
+                {data.heading}
               </h1>
-              <p className="lg:w-[50%] w-full">{sliderData.description}</p>
-              <Link className="btn btn-soft btn-primary lg:w-100">{sliderData.ctaText}</Link>
+              <p className="lg:w-[50%] w-full">{data.description}</p>
+              <Link className="btn btn-soft btn-primary lg:w-100">{data.ctaText}</Link>
               
             </div>
           </SwiperSlide>

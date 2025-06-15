@@ -1,13 +1,13 @@
-import React from "react";
+import React, { Suspense } from "react";
 import Slider from "../../Components/HomepageComponnets/Slider";
 import FeatureArticales from "../../Components/HomepageComponnets/FeatureArticales";
-
+import Loading from "../../ShearComponents/Loading"
 
 const knewNetdataPromise = fetch('http://localhost:3000/knownetdata').then(res=>res.json())
 const Home = () => {
   return (
     <div>
-      <div className="text-center my-10">
+      <div className="text-center my-10 mx-4 lg:mx-0">
         <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold">Ideas Meet Curiosity at KnowNet </h1>
         <p className="mt-2 ">
           A student-powered platform where ideas, knowledge, and curiosity come
@@ -18,7 +18,9 @@ const Home = () => {
             <Slider/>
         </div>
       </div>
-      <FeatureArticales knewNetdataPromise = {knewNetdataPromise}></FeatureArticales>
+      <Suspense fallback={<Loading></Loading>}>
+        <FeatureArticales knewNetdataPromise = {knewNetdataPromise}></FeatureArticales>
+      </Suspense>
     </div>
   );
 };
