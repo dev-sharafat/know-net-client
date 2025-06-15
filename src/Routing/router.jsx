@@ -4,6 +4,8 @@ import Home from "../Pages/HomePage/Home";
 import Login from "../Pages/LoginPages/Login";
 import SignIn from "../Pages/LoginPages/SignIn";
 import ShowCategoryCard from "../Components/HomepageComponnets/ShowCategoryCard";
+import AllArticles from "../LayOuts/AllArticleLayout/AllArticles";
+import AllArticlesData from "../Pages/AllArticlePage/AllArticlesData";
 
 const router = createBrowserRouter([
     {
@@ -31,7 +33,15 @@ const router = createBrowserRouter([
         ] 
     },
     {
+        path:'/allarticles',
+        Component:AllArticles,
+        children:[
+            {
+                index:true,
+                Component:AllArticlesData
 
+            }
+        ]
     }
 ])
 

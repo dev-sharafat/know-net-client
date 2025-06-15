@@ -24,10 +24,10 @@ const NavBar = () => {
   const Navlinks = (
     <>
       <li>
-        <NavLink>Home</NavLink>
+        <NavLink to='/'>Home</NavLink>
       </li>
       <li>
-        <NavLink>All Articles</NavLink>
+        <NavLink to='/allarticles'>All Articles</NavLink>
       </li>
       {user && (
         <>
