@@ -6,6 +6,8 @@ import SignIn from "../Pages/LoginPages/SignIn";
 import ShowCategoryCard from "../Components/HomepageComponnets/ShowCategoryCard";
 import AllArticles from "../LayOuts/AllArticleLayout/AllArticles";
 import AllArticlesData from "../Pages/AllArticlePage/AllArticlesData";
+import PostArticleLayout from "../LayOuts/PostArticles/PostArticleLayout";
+import PostArticleFrom from "../Components/PostArticleComponent/PostArticleFrom";
 
 const router = createBrowserRouter([
     {
@@ -40,6 +42,16 @@ const router = createBrowserRouter([
                 index:true,
                 Component:AllArticlesData
 
+            }
+        ]
+    },
+    {
+        path:"/postarticle",
+        Component:PostArticleLayout,
+        children:[
+            {
+                index:true,
+                Component:PostArticleFrom
             }
         ]
     }
