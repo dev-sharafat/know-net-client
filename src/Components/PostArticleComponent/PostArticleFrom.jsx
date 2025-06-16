@@ -1,10 +1,16 @@
-import React, { use } from "react";
+import React, { use, useEffect, useState } from "react";
 import AuthContext from "../../FirebaseAuthentication/AuthContext";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { DateTime } from "luxon";
 
 const PostArticleFrom = () => {
   const { user } = use(AuthContext);
+  const [datePosted, setDatePosted] = useState("");
+  useEffect(()=>{
+    const currentDate = DateTime.now().toFormat("ccc, LLL d, yyyy");
+    setDatePosted(currentDate)
+  },[])
   const handlePostArticle = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -12,7 +18,8 @@ const PostArticleFrom = () => {
     const datas = Object.fromEntries(formData.entries());
     datas.tag = datas.tag.split(",").map((tag) => tag.trim());
     console.log(datas);
-
+    datas.date_posted = datePosted;
+   
     axios
       .post("http://localhost:3000/articles", datas)
       .then((res) => {
@@ -89,7 +96,7 @@ const PostArticleFrom = () => {
           <fieldset className="fieldset">
             <legend className="fieldset-legend">Photo URL</legend>
             <input
-              name="photo"
+              name="author_photo"
               type="text"
               className="input w-full input-primary"
               placeholder="Write your photo url.."
@@ -98,19 +105,21 @@ const PostArticleFrom = () => {
           <fieldset className="fieldset">
             <legend className="fieldset-legend">Auther-Name</legend>
             <input
-              name="name"
+              name="author_name"
               type="text"
-              value={user.displayName}
+              readOnly
+              defaultValue={user.displayName}
               className="input w-full input-primary"
               placeholder="Write your name.."
             />
           </fieldset>
           <fieldset className="fieldset">
-            <legend className="fieldset-legend">Photo URL</legend>
+            <legend className="fieldset-legend">Email</legend>
             <input
               name="email"
               type="email"
-              value={user.email}
+              readOnly
+              defaultValue={user.email}
               className="input w-full input-primary"
               placeholder="Write your email.."
             />
@@ -119,7 +128,7 @@ const PostArticleFrom = () => {
             <legend className="fieldset-legend">Like</legend>
             <input
               type="text"
-              name="title"
+              name="likes"
               className="input w-full input-primary"
               readOnly value={0}
             />
@@ -128,7 +137,9 @@ const PostArticleFrom = () => {
             <legend className="fieldset-legend">Publisher_Time</legend>
             <input
               type="text"
-              name="title"
+              name="date_posted"
+              readOnly
+              defaultValue={datePosted}
               className="input w-full input-primary"
               placeholder="Type your post title"
             />

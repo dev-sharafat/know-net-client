@@ -1,10 +1,10 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router';
+import { Link } from 'react-router';
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
 
 const ShowCategory = ({ article, index }) => {
-  const navigate = useNavigate();
+
   const { title, author_photo, content, date_posted, author_name, _id } = article;
 
   return (
@@ -41,7 +41,7 @@ const ShowCategory = ({ article, index }) => {
         </div>
 
         <Link
-          onClick={() => navigate(`/articles/${_id}`)}
+          to={`/articles/${_id}`}
           className="text-lg text-blue-500 hover:underline"
         >
           Read More

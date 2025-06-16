@@ -8,6 +8,9 @@ import AllArticles from "../LayOuts/AllArticleLayout/AllArticles";
 import AllArticlesData from "../Pages/AllArticlePage/AllArticlesData";
 import PostArticleLayout from "../LayOuts/PostArticles/PostArticleLayout";
 import PostArticleFrom from "../Components/PostArticleComponent/PostArticleFrom";
+import MyArticleLayOut from "../LayOuts/MyArticle/MyArticleLayOut";
+import MyArticles from "../Pages/MyArticlePage/MyArticles";
+import ShowCategoryDetails from "../Components/HomepageComponnets/ShowCategoryDetails";
 
 const router = createBrowserRouter([
     {
@@ -23,6 +26,12 @@ const router = createBrowserRouter([
                 path:"/category/:categry",
                 loader:()=>fetch('http://localhost:3000/category/'),
                 Component:ShowCategoryCard
+            },
+            {
+                path:"/articles/:id",
+                loader:()=>fetch("http://localhost:3000/articles/"),
+                Component:ShowCategoryDetails
+
             },
             {
                 path:'login',
@@ -52,6 +61,16 @@ const router = createBrowserRouter([
             {
                 index:true,
                 Component:PostArticleFrom
+            }
+        ]
+    },
+    {
+        path:"/myarticles",
+        Component:MyArticleLayOut,
+        children:[
+            {
+                index:true,
+                Component:MyArticles
             }
         ]
     }

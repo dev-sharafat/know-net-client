@@ -33,7 +33,7 @@ const NavBar = () => {
         <>
           {" "}
           <li>
-            <NavLink>My Articles</NavLink>
+            <NavLink to='/myarticles'>My Articles</NavLink>
           </li>
           <li>
             <NavLink to='/postarticle'>Post Articles</NavLink>
