@@ -17,7 +17,7 @@ const PostArticleFrom = () => {
     const formData = new FormData(form);
     const datas = Object.fromEntries(formData.entries());
     datas.tag = datas.tag.split(",").map((tag) => tag.trim());
-    console.log(datas);
+    
     datas.date_posted = datePosted;
    
     axios
@@ -123,16 +123,7 @@ const PostArticleFrom = () => {
               className="input w-full input-primary"
               placeholder="Write your email.."
             />
-          </fieldset>
-           <fieldset className="fieldset">
-            <legend className="fieldset-legend">Like</legend>
-            <input
-              type="text"
-              name="likes"
-              className="input w-full input-primary"
-              readOnly value={0}
-            />
-          </fieldset>
+          </fieldset>          
            <fieldset className="fieldset">
             <legend className="fieldset-legend">Publisher_Time</legend>
             <input

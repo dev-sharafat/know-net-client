@@ -11,6 +11,7 @@ import PostArticleFrom from "../Components/PostArticleComponent/PostArticleFrom"
 import MyArticleLayOut from "../LayOuts/MyArticle/MyArticleLayOut";
 import MyArticles from "../Pages/MyArticlePage/MyArticles";
 import ShowCategoryDetails from "../Components/HomepageComponnets/ShowCategoryDetails";
+import AllArticleDetailPage from "../Pages/AllArticlePage/AllArticleDetailPage";
 
 const router = createBrowserRouter([
     {
@@ -51,7 +52,11 @@ const router = createBrowserRouter([
                 index:true,
                 Component:AllArticlesData
 
-            }
+            },
+            // {
+            //     path:'/allarticles/:id',
+            //     Component:AllArticleDetailPage
+            // }
         ]
     },
     {

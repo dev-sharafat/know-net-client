@@ -64,7 +64,7 @@ const NavBar = () => {
         </div>
         <Link
           to="/"
-          className="font-bold text-2xl text-[#1F2937]  hidden  lg:block"
+          className="font-bold text-2xl text-[#1F2937] dark:text-white hidden  lg:block"
         >
           {" "}
           <h1 className="flex justify-center items-center">

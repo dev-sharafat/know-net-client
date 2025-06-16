@@ -1,12 +1,11 @@
-import React from 'react';
-import { Link, useNavigate } from 'react-router';
+import React from "react";
+import { Link} from "react-router";
 // eslint-disable-next-line no-unused-vars
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 
-
-const ShowArticles = ({data,index}) => {
-    const navigate = useNavigate();
-    const { title, author_photo, content, date_posted, author_name, _id } = data;
+const ShowArticles = ({ data, index }) => {
+  
+  const { title, author_photo, content, date_posted, author_name, _id } = data;
 
   return (
     <motion.div
@@ -41,15 +40,10 @@ const ShowArticles = ({data,index}) => {
           | <span>{new Date(date_posted).toDateString()}</span>
         </div>
 
-        <Link
-          onClick={() => navigate(`/articles/${_id}`)}
-          className="text-lg text-blue-500 hover:underline"
-        >
-          Read More
-        </Link>
+        <Link to={`/articles/${_id}`} className="text-lg text-blue-500 hover:underline">Read More</Link>
       </div>
     </motion.div>
-    );
+  );
 };
 
 export default ShowArticles;
