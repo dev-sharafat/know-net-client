@@ -30,7 +30,7 @@ const Category = () => {
           you.
         </p>
       </div>
-      <div className="mt-10">
+      <div className="mt-10 flex flex-wrap gap-4">
         {categoryData.map((category) => (
           <Link to={`/category/${category.category}`} key={category._id} category={category} className="btn btn-outline btn-primary  ml-10">
             {category.category}

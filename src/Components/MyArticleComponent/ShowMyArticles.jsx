@@ -1,11 +1,13 @@
-import React from 'react';
-import { FaEdit } from 'react-icons/fa';
-import { MdDelete } from 'react-icons/md';
-import { Link } from 'react-router'; // ✅ fixed import
-import Swal from 'sweetalert2';
+import React, { useState } from "react";
+import { FaEdit } from "react-icons/fa";
+import { MdDelete } from "react-icons/md";
+import { Link } from "react-router"; // ✅ fixed import
+import Swal from "sweetalert2";
+import Modal from "../../ShearComponents/Modal";
 
 const ShowMyArticles = ({ myArticles }) => {
-
+  const [showModal, setShowmodal] = useState(false);
+  const closeModal = () => setShowmodal(false);
   const handleDelete = (_id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -14,7 +16,7 @@ const ShowMyArticles = ({ myArticles }) => {
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!"
+      confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
         fetch(`http://localhost:3000/articles/${_id}`, {
@@ -25,10 +27,11 @@ const ShowMyArticles = ({ myArticles }) => {
             Swal.fire({
               title: "Deleted!",
               text: "Your article has been deleted.",
+              data,
               icon: "success",
             });
             window.location.reload();
-          },700);
+          }, 700);
       }
     });
   };
@@ -72,18 +75,18 @@ const ShowMyArticles = ({ myArticles }) => {
                 >
                   <MdDelete className="w-5 h-5 text-red-500" />
                 </button>
-                <Link
-                  state={data}
-                  to="/mytips/updatetips"
-                  className="btn btn-ghost btn-lg"
-                >
-                  <FaEdit className="w-5 h-5 text-blue-500" />
-                </Link>
+                <button onClick={() => setShowmodal(true)} state={data} className="btn btn-ghost btn-lg">
+                  <FaEdit
+                    
+                    className="w-5 h-5 text-blue-500"
+                  />
+                </button>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
+      {showModal && <Modal closeModal={closeModal} />}
     </div>
   );
 };

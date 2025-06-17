@@ -3,6 +3,7 @@ import Slider from "../../Components/HomepageComponnets/Slider";
 import FeatureArticales from "../../Components/HomepageComponnets/FeatureArticales";
 import Loading from "../../ShearComponents/Loading"
 import Category from "../../Components/HomepageComponnets/Category";
+import TopContributer from "../../Components/HomepageComponnets/TopContribuiter";
 
 const knewNetdataPromise = fetch('http://localhost:3000/knownetdata').then(res=>res.json())
 const Home = () => {
@@ -23,6 +24,7 @@ const Home = () => {
         <FeatureArticales knewNetdataPromise = {knewNetdataPromise}></FeatureArticales>
       </Suspense>
       <Category></Category>
+      <TopContributer></TopContributer>
     </div>
   );
 };

@@ -3,25 +3,23 @@ import { Link } from "react-router";
 import Swal from "sweetalert2";
 import AuthContext from "../FirebaseAuthentication/AuthContext";
 
-
 const UserAvatar = () => {
   const [showDropdown, setShowDropdown] = useState(false);
-  const { handleSignOut, user,setUser } = use(AuthContext);
-  const handleLogOut =()=>{
-    handleSignOut().then(result =>{
-      setUser(result)
+  const { handleSignOut, user, setUser } = use(AuthContext);
+  const handleLogOut = () => {
+    handleSignOut().then((result) => {
+      setUser(result);
       Swal.fire({
-          position: "buttom",
-          icon: "success",
-          title: "You are successfully login",
-          showConfirmButton: false,
-          timer: 1500,
-        })
-        .catch(error=>{
-            Swal.fire(error.message)
-        })
-    })
-  }
+        position: "buttom",
+        icon: "success",
+        title: "You are successfully login",
+        showConfirmButton: false,
+        timer: 1500,
+      }).catch((error) => {
+        Swal.fire(error.message);
+      });
+    });
+  };
   return (
     <div className="relative inline-block text-left group">
       {/* Avatar + Hover Tooltip */}
@@ -46,21 +44,30 @@ const UserAvatar = () => {
       {showDropdown && (
         <div className="absolute right-0 mt-2 w-40  shadow-lg border rounded z-20">
           <ul className="py-2">
-            <Link
-              to="/userProfile"
-              className="px-4 py-2 hover:bg-blue-300 cursor-pointer"
-            >
-              Profile
-            </Link>
-            <li className="px-4 py-2 hover:bg-blue-300 cursor-pointer">
-              Settings
+            <li>
+              <Link
+                to="/myarticles"
+                className="px-4 py-2 hover:bg-blue-300 cursor-pointer"
+              >
+                My Artics
+              </Link>
             </li>
-            <Link
-              onClick={handleLogOut}
-              className="px-4 py-2 hover:bg-blue-300 cursor-pointer"
-            >
-              Logout
-            </Link>
+            <li>
+              <Link
+                to="/postarticle"
+                className="px-4 py-2 hover:bg-blue-300 cursor-pointer"
+              >
+                Post Article
+              </Link>
+            </li>
+            <li>
+              <Link
+                onClick={handleLogOut}
+                className="px-4 py-2 hover:bg-blue-300 cursor-pointer"
+              >
+                Logout
+              </Link>
+            </li>
           </ul>
         </div>
       )}

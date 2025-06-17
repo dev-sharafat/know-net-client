@@ -12,6 +12,8 @@ import MyArticleLayOut from "../LayOuts/MyArticle/MyArticleLayOut";
 import MyArticles from "../Pages/MyArticlePage/MyArticles";
 import ShowCategoryDetails from "../Components/HomepageComponnets/ShowCategoryDetails";
 import AllArticleDetailPage from "../Pages/AllArticlePage/AllArticleDetailPage";
+import AuthPrivate from "../FirebaseAuthentication/AuthPrivate";
+import ErrorPage from "../ShearComponents/Eror";
 
 const router = createBrowserRouter([
     {
@@ -31,7 +33,7 @@ const router = createBrowserRouter([
             {
                 path:"/articles/:id",
                 loader:()=>fetch("http://localhost:3000/articles/"),
-                Component:ShowCategoryDetails
+                element:<AuthPrivate><ShowCategoryDetails></ShowCategoryDetails></AuthPrivate>
 
             },
             {
@@ -78,6 +80,10 @@ const router = createBrowserRouter([
                 Component:MyArticles
             }
         ]
+    },
+    {
+        path:'/*',
+        Component:ErrorPage
     }
 ])
 
