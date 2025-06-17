@@ -24,9 +24,7 @@ const MyArticles = () => {
       <div>
         <h1>My Posted Articles</h1>
       </div>
-      {myArticles.map((article,index) => (
-        <ShowMyArticles article={article} key={index} />
-      ))}
+      <ShowMyArticles myArticles={myArticles}></ShowMyArticles>
     </div>
   );
 };
