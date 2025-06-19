@@ -4,35 +4,58 @@ import Lottie from "lottie-react";
 import { Link } from "react-router";
 import AuthContext from "../../FirebaseAuthentication/AuthContext";
 import Swal from "sweetalert2";
+// import axios from "axios";
 const Login = () => {
-  const { signIn, googleSignIn,setUser } = use(AuthContext);
+  const { handleSignIn, googleSignIn, setUser } = use(AuthContext);
   const hanldeLogin = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
-    console.log(email, password);
-    signIn(email, password)
-      .then((result) => {
-        setUser(result)
-        Swal.fire({
-          position: "buttom",
-          icon: "success",
-          title: "You are successfully login",
-          showConfirmButton: false,
-          timer: 1500,
-        });
-        setTimeout(()=>{
-          window.location.replace('/')
-        },2000)
-      })
+    // axios
+    //   .post("https://know-net-server.vercel.app/auth/login", { email, password })
+    //   .then((res) => {
+    //     if (res.data.token) {
+    //       localStorage.setItem("token", res?.data?.token);
+    //       setUser(res?.data?.user);
+    //       Swal.fire({
+    //         position: "buttom",
+    //         icon: "success",
+    //         title: "You are successfully login",
+    //         showConfirmButton: false,
+    //         timer: 1500,
+    //       });
+    //       setTimeout(() => {
+    //         window.location.replace("/");
+    //       }, 2000);
+    //     }
+    //   })
+
+      handleSignIn(email, password)
+        .then((result) => {
+          console.log(result);
+          setUser(result)
+           localStorage.setItem("accessToken", result?._tokenResponse?.idToken
+);
+          Swal.fire({
+            position: "buttom",
+            icon: "success",
+            title: "You are successfully login",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          setTimeout(()=>{
+            // window.location.replace('/')
+          },2000)
+        })
       .catch((error) => {
         Swal.fire(error.message);
       });
   };
   const handlegoolelogin = () => {
     googleSignIn()
-        .then((result) => {
-          setUser(result)
+      .then((result) => {
+        setUser(result);
+         localStorage.setItem("accessToken", result?._tokenResponse?.idToken)
         Swal.fire({
           position: "buttom",
           icon: "success",
@@ -40,9 +63,9 @@ const Login = () => {
           showConfirmButton: false,
           timer: 1500,
         });
-        setTimeout(()=>{
-          window.location.replace('/')
-        },2000)
+        setTimeout(() => {
+          window.location.replace("/");
+        }, 2000);
       })
       .catch((error) => {
         Swal.fire(error.message);

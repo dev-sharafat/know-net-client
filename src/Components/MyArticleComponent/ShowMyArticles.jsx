@@ -19,7 +19,7 @@ const ShowMyArticles = ({ myArticles }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/articles/${_id}`, {
+        fetch(`https://know-net-server.vercel.app/articles/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

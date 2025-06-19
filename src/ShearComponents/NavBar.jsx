@@ -5,6 +5,7 @@ import AuthContext from "../FirebaseAuthentication/AuthContext";
 import UserAvatar from "./UserAvater";
 const NavBar = () => {
   const { user } = use(AuthContext);
+  console.log(user);
   const [currentToggole,setCurrentToggole] = useState(false)
   
   useEffect(()=>{

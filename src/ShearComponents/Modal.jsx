@@ -20,7 +20,7 @@ const Modal = ({ closeModal }) => {
 
   const handleUpdate = (data) => {
     axios
-      .patch(`http://localhost:3000/articles/${state?._id}`, data)
+      .patch(`https://know-net-server.vercel.app/articles/${state?._id}`, data)
       .then((res) => {
         if (res.data.modifiedCount > 0) {
           Swal.fire({

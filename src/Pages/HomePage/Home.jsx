@@ -4,8 +4,9 @@ import FeatureArticales from "../../Components/HomepageComponnets/FeatureArtical
 import Loading from "../../ShearComponents/Loading"
 import Category from "../../Components/HomepageComponnets/Category";
 import TopContributer from "../../Components/HomepageComponnets/TopContribuiter";
+import TestimonialSection from "../../Components/HomepageComponnets/TestimonialSection";
 
-const knewNetdataPromise = fetch('http://localhost:3000/knownetdata').then(res=>res.json())
+const knewNetdataPromise = fetch('https://know-net-server.vercel.app/knownetdata').then(res=>res.json())
 const Home = () => {
   return (
     <div>
@@ -25,6 +26,7 @@ const Home = () => {
       </Suspense>
       <Category></Category>
       <TopContributer></TopContributer>
+      <TestimonialSection></TestimonialSection>
     </div>
   );
 };

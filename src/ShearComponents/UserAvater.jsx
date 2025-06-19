@@ -9,6 +9,7 @@ const UserAvatar = () => {
   const handleLogOut = () => {
     handleSignOut().then((result) => {
       setUser(result);
+      localStorage.removeItem("accessToken")
       Swal.fire({
         position: "buttom",
         icon: "success",

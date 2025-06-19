@@ -27,12 +27,12 @@ const router = createBrowserRouter([
             },
             {
                 path:"/category/:categry",
-                loader:()=>fetch('http://localhost:3000/category/'),
+                loader:()=>fetch('https://know-net-server.vercel.app/category/'),
                 Component:ShowCategoryCard
             },
             {
                 path:"/articles/:id",
-                loader:()=>fetch("http://localhost:3000/articles/"),
+                loader:()=>fetch("https://know-net-server.vercel.app/articles/"),
                 element:<AuthPrivate><ShowCategoryDetails></ShowCategoryDetails></AuthPrivate>
 
             },

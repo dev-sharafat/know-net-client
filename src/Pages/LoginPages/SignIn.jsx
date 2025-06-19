@@ -44,6 +44,7 @@ const SignIn = () => {
             console.log(data);
             setUser({ ...result, displayName: name, photoURL: photo });
             setPassError(" ");
+            localStorage.setItem("accessToken", result?._tokenResponse?.idToken)
             Swal.fire({
               // position: "top-center",
               icon: "success",

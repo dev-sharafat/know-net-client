@@ -12,7 +12,7 @@ const ShowCategoryCard = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/category/${categry}`)
+      .get(`https://know-net-server.vercel.app/category/${categry}`)
       .then((res) => setShowCategoryData(res.data))
       .catch((error) => {
         Swal.fire("Error", error.message, "error");

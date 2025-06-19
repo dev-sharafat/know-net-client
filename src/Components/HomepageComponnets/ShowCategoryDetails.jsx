@@ -15,7 +15,7 @@ const ShowCategoryDetails = () => {
   const [commentvalue,setCommetnValue] = useState(" ")
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/articles/${id}`)
+      .get(`https://know-net-server.vercel.app/articles/${id}`)
       .then((res) => {
         setCategoryDetails(res?.data[0]);
       })
@@ -28,13 +28,13 @@ const ShowCategoryDetails = () => {
   console.log(categoryDetails);
 
   const handleLike =()=>{
-    axios.post(`http://localhost:3000/article/countlikes?articleId=${categoryDetails._id}&email=${user.email}`)
+    axios.post(`https://know-net-server.vercel.app/article/countlikes?articleId=${categoryDetails._id}&email=${user.email}`)
     setReload(true)
   }
   const handleComment =()=>{
  axios
     .post(
-      `http://localhost:3000/article/comment?articleId=${categoryDetails._id}&email=${user.email}`,
+      `https://know-net-server.vercel.app/article/comment?articleId=${categoryDetails._id}&email=${user.email}`,
       {
         comment: commentvalue,
         photo: user.photoURL,

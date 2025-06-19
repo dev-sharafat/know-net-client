@@ -7,6 +7,10 @@ import { DateTime } from "luxon";
 const PostArticleFrom = () => {
   const { user } = use(AuthContext);
   const [datePosted, setDatePosted] = useState("");
+  // const [token,setToken] =useState(null)
+  // useEffect(()=>{
+  //   setToken(localStorage.getItem("accessToken"))
+  // },[])
   useEffect(()=>{
     const currentDate = DateTime.now().toFormat("ccc, LLL d, yyyy");
     setDatePosted(currentDate)
@@ -19,27 +23,30 @@ const PostArticleFrom = () => {
     datas.tag = datas.tag.split(",").map((tag) => tag.trim());
     
     datas.date_posted = datePosted;
-   
-    axios
-      .post("http://localhost:3000/articles", datas)
-      .then((res) => {
-        if (res.data.insertedId) {
-          Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "Your work has been saved",
-            showConfirmButton: false,
-            timer: 1500,
-          });
-          setTimeout(()=>{
-            window.location.replace("/allarticles")
-          },700)
+  
 
-        }
-      })
-      .catch((error) => {
-        Swal.fire(error.message);
-      });
+     axios
+       .post("https://know-net-server.vercel.app/articles",datas)
+       .then((res) => {
+        console.log(res);
+         if (res?.data?.insertedId) {
+           Swal.fire({
+             position: "top-end",
+             icon: "success",
+             title: "Your work has been saved",
+             showConfirmButton: false,
+             timer: 1500,
+           });
+           setTimeout(()=>{
+             window.location.replace("/allarticles")
+           },700)
+ 
+         }
+       })
+       .catch((error) => {
+         Swal.fire(error.message);
+       });
+   
   };
   return (
     <div className=" mx-4 md:mx-4 lg:mx-0">

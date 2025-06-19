@@ -7,16 +7,25 @@ const AllArticlesData = () => {
   const [allDatas, setAllDatas] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [categry, setCategry] = useState("All");
+  //  const [token,setToken] =useState(null)
+    // useEffect(()=>{
+    //   setToken(localStorage.getItem("accessToken"))
+    // },[])
+
   useEffect(() => {
-    axios
-      .get("http://localhost:3000/articles")
-      .then((res) => {
-        setAllDatas(res.data) 
-        setFilteredData(res.data)
-      })
-      .catch((error) => {
-        Swal.fire(error.message);
-      });
+    // if(token){
+      axios
+        .get("https://know-net-server.vercel.app/articles", {
+          //  headers: { Authorization: token },
+         })
+        .then((res) => {
+          setAllDatas(res?.data) 
+          setFilteredData(res?.data)
+        })
+        .catch((error) => {
+          Swal.fire(error.message);
+        });
+    // }
   }, []);
   console.log(allDatas);
   const handleFilterChange = (e) => {
