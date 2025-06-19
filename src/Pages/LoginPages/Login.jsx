@@ -44,7 +44,7 @@ const Login = () => {
             timer: 1500,
           });
           setTimeout(()=>{
-            // window.location.replace('/')
+            window.location.replace('/')
           },2000)
         })
       .catch((error) => {
