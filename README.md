@@ -5,7 +5,7 @@
 ## Description
 A modern, responsive Knowledge Sharing Platform where students can post articles, share knowledge, and engage in discussions through comments. Built using the MERN stack (MongoDB, Express.js, React, Node.js) with Firebase authentication, this platform enables seamless content creation and interaction with an intuitive UI.
 
-**Live Demo:** [https://your-live-project-link.com]([https://your-live-project-link.com](https://knownet-client.vercel.app/))
+**Live Demo:** [https://your-live-project-link.com](https://knownet-client.vercel.app/))
 
 ---
 
