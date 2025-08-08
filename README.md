@@ -1,6 +1,6 @@
 # Knowledge Sharing Platform
 
-![logo](<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/6b160ba6-cd3a-42c2-9787-c09294d73a69" />
+![logo](Screenshot (33).png>
 )
 
 ## Description
