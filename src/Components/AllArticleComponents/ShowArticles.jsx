@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 const ShowArticles = ({ data, index }) => {
   
-  const { title, author_photo, content, date_posted, author_name, _id } = data;
+  const { title, author_photo, date_posted, author_name, _id } = data;
 
   return (
     <motion.div
@@ -29,9 +29,9 @@ const ShowArticles = ({ data, index }) => {
           {title}
         </h3>
 
-        <p className="text-gray-600 dark:text-gray-200 text-sm mb-4 line-clamp-4">
+        {/* <p className="text-gray-600 dark:text-gray-200 text-sm mb-4 line-clamp-4">
           {content}
-        </p>
+        </p> */}
 
         <div className="text-sm text-gray-500 dark:text-gray-300 mb-4">
           <span>

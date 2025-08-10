@@ -1,12 +1,15 @@
 import React, { use } from "react";
 import login from "../../assets/Login.json";
 import Lottie from "lottie-react";
-import { Link } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import AuthContext from "../../FirebaseAuthentication/AuthContext";
 import Swal from "sweetalert2";
 // import axios from "axios";
 const Login = () => {
   const { handleSignIn, googleSignIn, setUser } = use(AuthContext);
+  const location = useLocation()
+  console.log(location);
+  const navigate = useNavigate()
   const hanldeLogin = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
@@ -43,9 +46,10 @@ const Login = () => {
             showConfirmButton: false,
             timer: 1500,
           });
-          setTimeout(()=>{
-            window.location.replace('/')
-          },2000)
+          // setTimeout(()=>{
+          //   window.location.replace(location?.state || '/')
+          // },2000)
+          navigate(location?.state || "/")
         })
       .catch((error) => {
         Swal.fire(error.message);
@@ -64,7 +68,7 @@ const Login = () => {
           timer: 1500,
         });
         setTimeout(() => {
-          window.location.replace("/");
+          window.location.replace(location?.state ||"/");
         }, 2000);
       })
       .catch((error) => {

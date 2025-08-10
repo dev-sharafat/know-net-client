@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
-import { Link } from "react-router"; // ✅ fixed import
+import { Link } from "react-router"; // Correct import for React Router v6+
 import Swal from "sweetalert2";
 import Modal from "../../ShearComponents/Modal";
 
 const ShowMyArticles = ({ myArticles }) => {
   const [showModal, setShowmodal] = useState(false);
   const closeModal = () => setShowmodal(false);
+
   const handleDelete = (_id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -26,15 +27,26 @@ const ShowMyArticles = ({ myArticles }) => {
           .then((data) => {
             Swal.fire({
               title: "Deleted!",
-              text: "Your article has been deleted.",
-              data,
+              text: "Your article has been deleted.",data,
               icon: "success",
             });
             window.location.reload();
-          }, 700);
+          });
       }
     });
   };
+
+  // If no articles, show message and button
+  if (!myArticles || myArticles.length === 0) {
+    return (
+      <div className="text-center py-20">
+        <p className="text-xl mb-6">You haven't posted any articles yet.</p>
+        <Link to="/postarticle" className="btn btn-primary">
+          Post Your First Article
+        </Link>
+      </div>
+    );
+  }
 
   return (
     <div className="overflow-x-auto">
@@ -48,7 +60,7 @@ const ShowMyArticles = ({ myArticles }) => {
           </tr>
         </thead>
         <tbody>
-          {myArticles?.map((data, index) => (
+          {myArticles.map((data, index) => (
             <tr key={data._id}>
               <th>{index + 1}</th>
               <td>
@@ -56,30 +68,31 @@ const ShowMyArticles = ({ myArticles }) => {
                   <div className="avatar">
                     <div className="mask mask-squircle h-12 w-12">
                       <img
-                        src={data.author_photo}
-                        alt={`${data.author_name}'s avatar`}
+                        src={data?.author_photo}
+                        alt={`${data?.author_name}'s avatar`}
                       />
                     </div>
                   </div>
                   <div>
-                    <div className="font-bold">{data.author_name}</div>
-                    <div className="text-sm opacity-50">{data.category}</div>
+                    <div className="font-bold">{data?.author_name}</div>
+                    <div className="text-sm opacity-50">{data?.category}</div>
                   </div>
                 </div>
               </td>
-              <td>{data.title}</td>
+              <td>{data?.title}</td>
               <td className="flex items-center gap-4">
                 <button
                   className="btn btn-ghost btn-lg"
-                  onClick={() => handleDelete(data._id)}
+                  onClick={() => handleDelete(data?._id)}
                 >
                   <MdDelete className="w-5 h-5 text-red-500" />
                 </button>
-                <button onClick={() => setShowmodal(true)} state={data} className="btn btn-ghost btn-lg">
-                  <FaEdit
-                    
-                    className="w-5 h-5 text-blue-500"
-                  />
+                <button
+                  onClick={() => setShowmodal(true)}
+                  state={data}
+                  className="btn btn-ghost btn-lg"
+                >
+                  <FaEdit className="w-5 h-5 text-blue-500" />
                 </button>
               </td>
             </tr>

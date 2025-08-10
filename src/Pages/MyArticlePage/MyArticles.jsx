@@ -35,7 +35,7 @@ const MyArticles = () => {
   return (
     <div className="mx-4 lg:mx-0">
       <div className="text-center my-10">
-        <h1 className="font-bold text-2xl md:text-3xl lg:text-5xl">
+        <h1 className="font-bold text-2xl md:text-3xl lg:text-3xl">
           My Posted Articles
         </h1>
       </div>

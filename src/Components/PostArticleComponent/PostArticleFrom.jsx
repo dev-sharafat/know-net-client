@@ -48,7 +48,7 @@ const PostArticleFrom = () => {
   return (
     <div className=" mx-4 md:mx-4 lg:mx-0">
       <div className="text-center space-y-3 my-10">
-        <h1 className="text-2xl md:text-3xl lg:text-5xl font-bold">
+        <h1 className="text-2xl md:text-3xl lg:text-3xl font-bold">
           Post Your Article
         </h1>
         <p>You can shear your own experience by completing the from </p>

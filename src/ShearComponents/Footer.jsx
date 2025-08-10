@@ -24,16 +24,16 @@ const Footer = () => {
           </>
         )}
         <li>
-          <NavLink>About Us</NavLink>
+          <NavLink to ="/about">About Us</NavLink>
         </li>
       </>
     );
   return (
     <footer className="footer sm:footer-horizontal bg-base-200 text-base-content p-10">
-      <aside>
+      <aside className="flex items-center">
         <img src={logo} alt=""  className="w-20"/>
-        <p>
-          KnowNet
+        <p className="text-3xl font-bold text-black dark:text-white">
+          <span className="text-blue-600">Know</span>Net
         </p>
       </aside>
       <ul>

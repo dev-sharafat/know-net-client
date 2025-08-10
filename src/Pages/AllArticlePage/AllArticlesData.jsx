@@ -42,7 +42,7 @@ const AllArticlesData = () => {
   return (
     <div className="mx-4 md:mx-4 lg:mx-0">
       <div className="text-center my-10">
-        <h1 className="font-bold text-2xl md:text-3xl lg:text-5xl ">
+        <h1 className="font-bold text-2xl md:text-3xl lg:text-3xl ">
           All Article IS Here
         </h1>
       </div>
@@ -64,7 +64,7 @@ const AllArticlesData = () => {
           </select>
         </div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-5">
         {filteredData.map((data, index) => (
           <ShowArticles key={index} data={data}></ShowArticles>
         ))}

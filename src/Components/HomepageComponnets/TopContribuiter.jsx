@@ -23,9 +23,9 @@ const contributors = [
 const TopContributer = () => {
   return (
     <section className="  py-16">
-      <div className="max-w-7xl mx-auto px-4">
+      <div className=" mx-auto lg:px-0 px-4 md:px-4">
         <motion.h2
-          className="text-4xl font-extrabold text-center text-indigo-800 mb-12 flex items-center justify-center gap-2"
+          className="text-3xl font-extrabold text-center  mb-12 flex items-center justify-center gap-2"
           initial={{ opacity: 0, y: -30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -49,12 +49,12 @@ const TopContributer = () => {
                 alt={user.name}
                 className="w-24 h-24 mx-auto rounded-full border-4 border-indigo-300 shadow-md object-cover"
               />
-              <h3 className="mt-4 text-xl font-bold text-indigo-700">
+              <h3 className="mt-4 text-xl font-bold ">
                 {user.name}
               </h3>
               <p className="text-sm dark:text-gray-200 text-gray-600 mt-1">
                 ✍️ Articles Contributed:{" "}
-                <span className="font-medium text-indigo-500">{user.articles}</span>
+                <span className="font-medium ">{user.articles}</span>
               </p>
               <div className="mt-4">
                 <span className="inline-block bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-xs font-medium">
