@@ -118,14 +118,14 @@ const About = () => {
           <li>
             <strong>Email:</strong>{" "}
             <a
-              href="mailto:support@knownet.com"
+              href=""
               className="text-primary underline"
             >
-              support@knownet.com
+              engsharafat23@gmail.com
             </a>
           </li>
           <li>
-            <strong>Phone:</strong> +1 (555) 123-4567
+            <strong>Phone:</strong> +8801822028628
           </li>
           <li>
             <strong>Live Chat:</strong>{" "}
