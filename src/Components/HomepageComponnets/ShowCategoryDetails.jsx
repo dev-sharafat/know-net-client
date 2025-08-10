@@ -61,7 +61,7 @@ const ShowCategoryDetails = () => {
         />
       </div>
       <div className="lg:mt-10 space-y-3">
-        <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold">
+        <h1 className="text-2xl md:text-4xl lg:text-4xl font-bold">
           {categoryDetails?.title}
         </h1>
         <h2 className="font-bold">

@@ -14,77 +14,91 @@ import ShowCategoryDetails from "../Components/HomepageComponnets/ShowCategoryDe
 import AllArticleDetailPage from "../Pages/AllArticlePage/AllArticleDetailPage";
 import AuthPrivate from "../FirebaseAuthentication/AuthPrivate";
 import ErrorPage from "../ShearComponents/Eror";
+import About from "../Pages/About Page/About";
+import AboutusLayout from "../LayOuts/AboutUsLayOut/AboutusLayout";
 
 const router = createBrowserRouter([
-    {
-        path:'/',
-        Component:HomePageLayOut,
-        children:[
-            {
-                index:true,
-                path:'/',
-                Component:Home
-            },
-            {
-                path:"/category/:categry",
-                loader:()=>fetch('https://know-net-server.vercel.app/category/'),
-                Component:ShowCategoryCard
-            },
-            {
-                path:"/articles/:id",
-                loader:()=>fetch("https://know-net-server.vercel.app/articles/"),
-                element:<AuthPrivate><ShowCategoryDetails></ShowCategoryDetails></AuthPrivate>
-
-            },
-            {
-                path:'login',
-                Component:Login
-            },
-            {
-                path:'/signup',
-                Component:SignIn
-            }
-        ] 
-    },
-    {
-        path:'/allarticles',
-        Component:AllArticles,
-        children:[
-            {
-                index:true,
-                Component:AllArticlesData
-
-            },
-            // {
-            //     path:'/allarticles/:id',
-            //     Component:AllArticleDetailPage
-            // }
-        ]
-    },
-    {
-        path:"/postarticle",
-        Component:PostArticleLayout,
-        children:[
-            {
-                index:true,
-                Component:PostArticleFrom
-            }
-        ]
-    },
-    {
-        path:"/myarticles",
-        Component:MyArticleLayOut,
-        children:[
-            {
-                index:true,
-                Component:MyArticles
-            }
-        ]
-    },
-    {
-        path:'/*',
-        Component:ErrorPage
-    }
-])
+  {
+    path: "/",
+    Component: HomePageLayOut,
+    children: [
+      {
+        index: true,
+        path: "/",
+        Component: Home,
+      },
+      {
+        path: "/category/:categry",
+        loader: () => fetch("https://know-net-server.vercel.app/category/"),
+        Component: ShowCategoryCard,
+      },
+      {
+        path: "/articles/:id",
+        loader: () => fetch("https://know-net-server.vercel.app/articles/"),
+        element: (
+          <AuthPrivate>
+            <ShowCategoryDetails></ShowCategoryDetails>
+          </AuthPrivate>
+        ),
+      },
+      {
+        path: "login",
+        Component: Login,
+      },
+      {
+        path: "/signup",
+        Component: SignIn,
+      },
+    ],
+  },
+  {
+    path: "/allarticles",
+    Component: AllArticles,
+    children: [
+      {
+        index: true,
+        Component: AllArticlesData,
+      },
+      // {
+      //     path:'/allarticles/:id',
+      //     Component:AllArticleDetailPage
+      // }
+    ],
+  },
+  {
+    path: "/postarticle",
+    Component: PostArticleLayout,
+    children: [
+      {
+        index: true,
+        Component: PostArticleFrom,
+      },
+    ],
+  },
+  {
+    path: "/myarticles",
+    Component: MyArticleLayOut,
+    children: [
+      {
+        index: true,
+        Component: MyArticles,
+      },
+    ],
+  },
+  {
+    path: "/",
+    Component: AboutusLayout,
+    children: [
+      {
+        path: "/about",
+        Component: About,
+      },
+    ],
+  },
+  {
+    path: "/*",
+    Component: ErrorPage,
+  },
+]);
 
 export default router;

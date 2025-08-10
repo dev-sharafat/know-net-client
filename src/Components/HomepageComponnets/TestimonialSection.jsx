@@ -25,7 +25,7 @@ const TestimonialSection = () => {
   return (
     <section className=" py-10 px-4 md:px-10">
       <div className="max-w-6xl mx-auto text-center">
-        <h2 className="text-3xl font-bold mb-8 text-gray-800">What Our Users Say</h2>
+        <h2 className="text-3xl font-bold mb-8">What Our Users Say</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {testimonials.map((testimonial, index) => (
             <div key={index} className="bg-white dark:bg-gray-600 p-6 rounded-2xl shadow-md hover:shadow-lg transition">

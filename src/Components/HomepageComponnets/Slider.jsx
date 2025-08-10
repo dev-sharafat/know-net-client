@@ -59,7 +59,7 @@ export default function Slider() {
               className="space-y-3  text-white my-10 flex flex-col justify-center px-10  h-[500px] bg-cover bg-center "
               style={{ backgroundImage: `url(${data.imageUrl})` }}
             >
-              <h1 className="text-2xl lg:text-5xl md:text-3xl font-bold">
+              <h1 className="text-2xl lg:text-4xl md:text-3xl font-bold">
                 {data.heading}
               </h1>
               <p className="lg:w-[50%] w-full">{data.description}</p>

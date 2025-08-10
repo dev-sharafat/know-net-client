@@ -11,7 +11,7 @@ const Home = () => {
   return (
     <div>
       <div className="text-center my-10 mx-4 lg:mx-0">
-        <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold">Ideas Meet Curiosity at KnowNet </h1>
+        <h1 className="text-2xl md:text-3xl lg:text-3xl font-bold">Ideas Meet Curiosity at KnowNet </h1>
         <p className="mt-2 ">
           A student-powered platform where ideas, knowledge, and curiosity come
           together. Share your experiences, read insightful articles, and grow

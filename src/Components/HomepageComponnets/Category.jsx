@@ -29,7 +29,7 @@ const Category = () => {
   return (
     <div className="mx-4 my-10 md:mx-4 lg:mx-0">
       <div className="text-center space-y-3">
-        <h1 className="text-2xl md:text-3xl lg:text-5xl font-bold">
+        <h1 className="text-2xl md:text-3xl lg:text-3xl font-bold">
           Browse Articles by Category
         </h1>
         <p className="text-center">
