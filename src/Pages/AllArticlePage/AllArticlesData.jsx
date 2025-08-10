@@ -7,16 +7,13 @@ const AllArticlesData = () => {
   const [allDatas, setAllDatas] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [categry, setCategry] = useState("All");
-  //  const [token,setToken] =useState(null)
-    // useEffect(()=>{
-    //   setToken(localStorage.getItem("accessToken"))
-    // },[])
+ 
 
   useEffect(() => {
-    // if(token){
+
       axios
         .get("https://know-net-server.vercel.app/articles", {
-          //  headers: { Authorization: token },
+         
          })
         .then((res) => {
           setAllDatas(res?.data) 

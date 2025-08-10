@@ -1,6 +1,7 @@
 import React from "react";
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
+import { Link } from "react-router";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -117,12 +118,12 @@ const About = () => {
         <ul className="text-gray-600 space-y-2">
           <li>
             <strong>Email:</strong>{" "}
-            <a
+            <Link
               href=""
               className="text-primary underline"
             >
               engsharafat23@gmail.com
-            </a>
+            </Link>
           </li>
           <li>
             <strong>Phone:</strong> +8801822028628

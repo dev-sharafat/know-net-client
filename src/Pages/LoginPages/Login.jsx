@@ -14,24 +14,7 @@ const Login = () => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
-    // axios
-    //   .post("https://know-net-server.vercel.app/auth/login", { email, password })
-    //   .then((res) => {
-    //     if (res.data.token) {
-    //       localStorage.setItem("token", res?.data?.token);
-    //       setUser(res?.data?.user);
-    //       Swal.fire({
-    //         position: "buttom",
-    //         icon: "success",
-    //         title: "You are successfully login",
-    //         showConfirmButton: false,
-    //         timer: 1500,
-    //       });
-    //       setTimeout(() => {
-    //         window.location.replace("/");
-    //       }, 2000);
-    //     }
-    //   })
+    // 
 
       handleSignIn(email, password)
         .then((result) => {
@@ -46,9 +29,7 @@ const Login = () => {
             showConfirmButton: false,
             timer: 1500,
           });
-          // setTimeout(()=>{
-          //   window.location.replace(location?.state || '/')
-          // },2000)
+         
           navigate(location?.state || "/")
         })
       .catch((error) => {
